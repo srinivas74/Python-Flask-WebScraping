@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container pt-5 d-flex justify-content-center">
+  <form class="form-inline" action="/search" method="POST">
+    <div class="px-2">
+    <input type="text" class="form-control mb-3 .mr-sm-2"  name="search" placeholder="Search" id="text">
+    </div>
+    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+  </form>
+
+  </div>
+  <div class="container">   
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th><th>Year</th><th>Position</th><th>Party</th><th>State</th><th>Congress</th><th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in range(0,Names|length) %}
+       <tr><td>{{ Names[i] }}</td><td>{{ years[i] }}</td><td>{{positions[i]}}</td><td>{{parties[i]}}</td><td>{{state[i]}}</td><td>{{congress[i]}}</td><td>{{link[i]}}</td></tr>
+       {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  
+</body>
+</html>
