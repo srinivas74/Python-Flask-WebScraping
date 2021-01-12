@@ -17,10 +17,7 @@ def index1():
     else:
       pass
     soup = BeautifulSoup(open("C:\\Users\\850557\\Documents\\Flask\\sample\\templates\\43rd-congress.html"), features="lxml")
-    #final_link = soup.p.a
-    #final_link.decompose()
-    #rogue = soup.find(bgcolor="#990000")
-    #rogue.decompose()
+
     fd=open('innovators.csv', 'w', newline='')
     f= csv.writer(fd)
     f.writerow(["Name", "Years", "Position", "Party", "State", "Congress", "Link"])
@@ -40,8 +37,8 @@ def index1():
           links.append(link.get ('href'))
         tds = tr.find_all("td")
 
-        try: #we are using "try" because the table is not well formatted. This allows the program to continue after encountering an error.
-            names.append(str(tds[0].get_text())) # This structure isolate the item by its column in the table and converts it into a string.
+        try: 
+            names.append(str(tds[0].get_text())) 
             years.append(str(tds[1].get_text()))
             positions.append(str(tds[2].get_text()))
             parties.append(str(tds[3].get_text()))
@@ -50,7 +47,7 @@ def index1():
 
         except:
             print("bad tr string: {}".format(tds))
-            continue #This tells the computer to move on to the next item after it encounters an error
+            continue 
     for i in range(len(links)):
       try:
         match=re.search(pattern,names[i],re.IGNORECASE)
